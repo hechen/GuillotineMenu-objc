@@ -27,7 +27,7 @@ static CGFloat const menuElasticity           = 0.6;
 
 @implementation GuillotineTransitionAnimation
 {
-    Mode _mode;
+    AnimationMode _mode;
     
     CGPoint anchorPoint;
     CGFloat _statusbarHeight;
@@ -38,7 +38,7 @@ static CGFloat const menuElasticity           = 0.6;
 }
 
 
-- (instancetype)initWithMode:(Mode)mode
+- (instancetype)initWithMode:(AnimationMode)mode
 {
     if(self = [super init])
     {
@@ -137,7 +137,7 @@ static CGFloat const menuElasticity           = 0.6;
     
     
     UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
-    if(_mode == Presentation)
+    if(_mode == AnimationModePresentation)
     {
         [self showHostTitleLabel: NO animated: YES];
         view.transform = CGAffineTransformRotate(CGAffineTransformIdentity, (initialMenuRotationAngle / 180.f) * M_PI);
@@ -223,7 +223,7 @@ static CGFloat const menuElasticity           = 0.6;
     
     [_menu.view addSubview:hostTitleLabel];
     
-    if (_mode == Presentation)
+    if (_mode == AnimationModePresentation)
     {
         hostTitleLabel.alpha = 1;
     }
@@ -248,7 +248,7 @@ static CGFloat const menuElasticity           = 0.6;
 #pragma mark - UIViewControllerAnimatedTransitioning
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    if(_mode == Presentation)
+    if(_mode == AnimationModePresentation)
     {
         [self animatePresentation:transitionContext];
     }
@@ -277,7 +277,7 @@ static CGFloat const menuElasticity           = 0.6;
 #pragma mark - UIDynamicAnimatorDelegate
 -(void) dynamicAnimatorDidPause : (UIDynamicAnimator*)animator
 {
-    if(_mode == Presentation)
+    if(_mode == AnimationModePresentation)
     {
         [self.animator removeAllBehaviors];
         
@@ -297,7 +297,7 @@ static CGFloat const menuElasticity           = 0.6;
             [_menu performSelector:@selector(menuDidFinishPresentation)];
         }
     }
-    else if(_mode == Dismissal)
+    else if(_mode == AnimationModeDismissal)
     {
         [_menu.view removeFromSuperview];
         if([_menu respondsToSelector:@selector(menuDidFinishDismissal)])

@@ -55,12 +55,12 @@ static char key = 0;
 {
     objc_setAssociatedObject(presented, &key, self, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    return [[GuillotineTransitionAnimation alloc] initWithMode:Presentation];
+    return [[GuillotineTransitionAnimation alloc] initWithMode:AnimationModePresentation];
 }
 
 - (id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
 {
-    return [[GuillotineTransitionAnimation alloc] initWithMode:Dismissal];
+    return [[GuillotineTransitionAnimation alloc] initWithMode:AnimationModeDismissal];
 }
 
 @end

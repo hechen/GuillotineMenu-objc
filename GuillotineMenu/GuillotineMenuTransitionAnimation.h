@@ -30,14 +30,14 @@
 
 
 
-typedef NS_ENUM(NSUInteger, Mode){
-    Presentation,
-    Dismissal
+typedef NS_ENUM(NSUInteger, AnimationMode){
+    AnimationModePresentation,
+    AnimationModeDismissal
 };
 
 @interface GuillotineTransitionAnimation : NSObject<UIViewControllerAnimatedTransitioning, UICollisionBehaviorDelegate, UIDynamicAnimatorDelegate>
 
 
-- (instancetype)initWithMode: (Mode) mode;
+- (instancetype)initWithMode: (AnimationMode) mode;
 
 @end
