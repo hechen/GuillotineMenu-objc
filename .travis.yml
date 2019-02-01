@@ -8,3 +8,6 @@ xcode_destination: platform=iOS Simulator,OS=12.0,name=iPhone X
 branches:
   only:
     - master
+
+notifications:
+  slack: chensworkspace:0iUM9QJqC1dzq27bJ9Fw87pn
