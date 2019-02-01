@@ -17,28 +17,16 @@ static char key = 0;
 @end
 
 @implementation GuillotineMenuSegue
-{
-    
-}
 
-- (instancetype)initWithIdentifier:(NSString *)identifier source:(UIViewController *)source destination:(UIViewController *)destination
-{
-    if([destination conformsToProtocol:@protocol(GuillotineAnimationDelegate)])
-    {
-        // do nothing
-    }
-    else
-    {
+- (instancetype)initWithIdentifier:(NSString *)identifier source:(UIViewController *)source destination:(UIViewController *)destination {
+    if(![destination conformsToProtocol:@protocol(GuillotineAnimationDelegate)]) {
         NSAssert1(YES, @"Destination must conform to %@ protocol", NSStringFromProtocol(@protocol(GuillotineAnimationProtocol)));
     }
     
-    self = [super initWithIdentifier:identifier source:source destination:destination];
-    
-    return self;
+    return [super initWithIdentifier:identifier source:source destination:destination];
 }
 
-- (void)perform
-{
+- (void)perform {
     UIViewController* source = self.sourceViewController;
     UIViewController* target = self.destinationViewController;
     
@@ -48,18 +36,17 @@ static char key = 0;
     [source presentViewController: target animated: YES completion: nil];
 }
 
+
 #pragma mark - UIViewControllerTransitioningDelegate
+
 - (id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
                                                                    presentingController:(UIViewController *)presenting
-                                                                       sourceController:(UIViewController *)source
-{
+                                                                       sourceController:(UIViewController *)source {
     objc_setAssociatedObject(presented, &key, self, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    
     return [[GuillotineTransitionAnimation alloc] initWithMode:AnimationModePresentation];
 }
 
-- (id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
-{
+- (id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
     return [[GuillotineTransitionAnimation alloc] initWithMode:AnimationModeDismissal];
 }
 

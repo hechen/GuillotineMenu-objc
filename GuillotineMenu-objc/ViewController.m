@@ -22,8 +22,7 @@ static const CGFloat cellSpacing = 20;
 
 @implementation ViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     UINavigationBar* navBar = self.navigationController.navigationBar;
@@ -31,52 +30,46 @@ static const CGFloat cellSpacing = 20;
     navBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-
-    
-    if([segue.destinationViewController isKindOfClass:[GuillotineMenuViewController class]])
-    {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.destinationViewController isKindOfClass:[GuillotineMenuViewController class]]) {
         GuillotineMenuViewController* destinationVC = segue.destinationViewController;
         destinationVC.hostNavigationBarHeight = self.navigationController.navigationBar.frame.size.height;
         destinationVC.hostTitleText           = self.navigationItem.title;
         destinationVC.view.backgroundColor    = self.navigationController.navigationBar.barTintColor;
-        [destinationVC setMenuButtonWithImage:self.barButton.imageView.image];
+        [destinationVC setMenuButtonWithImage: self.barButton.imageView.image];
         destinationVC.delegate = self;
-    }
-    else
-    {
+    } else {
         UIViewController* destinationVC = segue.destinationViewController;
         destinationVC.title = self.destinationTitle;
     }
 }
 
+
 #pragma mark - UICollectionViewDataSource
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return 7;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     return cell;
 }
 
+
 #pragma mark - UICollectionViewDelegateFlowLayout
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(CGRectGetWidth(collectionView.bounds) - cellSpacing, cellHeight);
 }
 
+
 #pragma mark - GuillotineMenuViewControllerDelegate
-- (void)menuOptionTapped:(NSString *)menuOption
-{
+
+- (void)menuOptionTapped:(NSString *)menuOption {
     self.destinationTitle = menuOption;
-    
     [self performSegueWithIdentifier:@"menuOptionSegueID" sender:self];
 }
-
 
 @end

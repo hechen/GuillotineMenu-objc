@@ -10,53 +10,57 @@
 
 @implementation UIView (ConstraintExtension)
 
--(void) addScaleToFitView : (UIView*)fillView edgeInsets: (UIEdgeInsets) insets
-{
-    if(fillView)
-    {
-        //[fillView setTranslatesAutoresizingMaskIntoConstraints:NO];   ////将使用AutoLayout的方式来布局
-        [self addConstraint: [NSLayoutConstraint constraintWithItem:fillView
-                                                          attribute:NSLayoutAttributeTop
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:self
-                                                          attribute:NSLayoutAttributeTop
-                                                         multiplier:1.f
-                                                           constant:insets.top]];
-        
-        [self addConstraint: [NSLayoutConstraint constraintWithItem:fillView
-                                                          attribute:NSLayoutAttributeLeading
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:self
-                                                          attribute:NSLayoutAttributeLeading
-                                                         multiplier:1.f
-                                                           constant:insets.left]];
-        
-        [self addConstraint: [NSLayoutConstraint constraintWithItem:fillView
-                                                          attribute:NSLayoutAttributeTrailing
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:self
-                                                          attribute:NSLayoutAttributeTop
-                                                         multiplier:1.f
-                                                           constant:insets.right]];
-        
-        [self addConstraint: [NSLayoutConstraint constraintWithItem:fillView
-                                                          attribute:NSLayoutAttributeBottom
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:self
-                                                          attribute:NSLayoutAttributeBottom
-                                                         multiplier:1.f
-                                                           constant:insets.bottom]];
+-(void)addScaleToFitView:(UIView*)fillView edgeInsets:(UIEdgeInsets)insets {
+    if(!fillView) {
+        return;
     }
+    
+    [self addConstraint: [NSLayoutConstraint constraintWithItem:fillView
+                                                      attribute:NSLayoutAttributeTop
+                                                      relatedBy:NSLayoutRelationEqual
+                                                         toItem:self
+                                                      attribute:NSLayoutAttributeTop
+                                                     multiplier:1.f
+                                                       constant:insets.top]];
+    
+    [self addConstraint: [NSLayoutConstraint constraintWithItem:fillView
+                                                      attribute:NSLayoutAttributeLeading
+                                                      relatedBy:NSLayoutRelationEqual
+                                                         toItem:self
+                                                      attribute:NSLayoutAttributeLeading
+                                                     multiplier:1.f
+                                                       constant:insets.left]];
+    
+    [self addConstraint: [NSLayoutConstraint constraintWithItem:fillView
+                                                      attribute:NSLayoutAttributeTrailing
+                                                      relatedBy:NSLayoutRelationEqual
+                                                         toItem:self
+                                                      attribute:NSLayoutAttributeTop
+                                                     multiplier:1.f
+                                                       constant:insets.right]];
+    
+    [self addConstraint: [NSLayoutConstraint constraintWithItem:fillView
+                                                      attribute:NSLayoutAttributeBottom
+                                                      relatedBy:NSLayoutRelationEqual
+                                                         toItem:self
+                                                      attribute:NSLayoutAttributeBottom
+                                                     multiplier:1.f
+                                                       constant:insets.bottom]];
 }
 
-// (NSLayoutConstraint, NSLayoutConstraint)
--(void) addConstraintsForMenuButton: (UIButton*)button offset: (UIOffset) offset result: (void(^)(NSLayoutConstraint*, NSLayoutConstraint*)) completion
-{
+-(void) addConstraintsForMenuButton: (UIButton*)button offset: (UIOffset) offset result: (void(^)(NSLayoutConstraint*, NSLayoutConstraint*)) completion {
     NSLayoutConstraint* leading = nil;
     NSLayoutConstraint* top = nil;
     
-    if(button)
-    {
+    if (!button) {
+        if (completion) {
+            completion(nil, nil);
+        }
+        
+        return;
+    }
+    
+    if(button) {
         [self removeConstraints: button.constraints];
         [button setTranslatesAutoresizingMaskIntoConstraints: NO];
         
@@ -95,7 +99,9 @@
     }
     
     // 返回 leading and  top
-    if(completion) completion(leading, top);
+    if (completion) {
+        completion(leading, top);
+    }
 }
 
 @end

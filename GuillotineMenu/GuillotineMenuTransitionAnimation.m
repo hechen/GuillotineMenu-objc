@@ -25,8 +25,7 @@ static CGFloat const menuElasticity           = 0.6;
 
 @end
 
-@implementation GuillotineTransitionAnimation
-{
+@implementation GuillotineTransitionAnimation {
     AnimationMode _mode;
     
     CGPoint anchorPoint;
@@ -38,13 +37,10 @@ static CGFloat const menuElasticity           = 0.6;
 }
 
 
-- (instancetype)initWithMode:(AnimationMode)mode
-{
-    if(self = [super init])
-    {
+- (instancetype)initWithMode:(AnimationMode)mode {
+    if(self = [super init]) {
         _mode = mode;
-    }
-    
+    }    
     return self;
 }
 

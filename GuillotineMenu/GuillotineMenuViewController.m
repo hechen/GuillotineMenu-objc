@@ -16,7 +16,6 @@ static CGFloat const hostNavigationBarHeightPortrait    = 44;
 
 @interface GuillotineMenuViewController ()<GuillotineAnimationDelegate>
 
-
 @property (nonatomic, strong) UIButton* menuButton;
 @property (nonatomic, strong) NSLayoutConstraint* menuButtonLeadingConstraint;
 @property (nonatomic, strong) NSLayoutConstraint* menuButtonTopConstraint;
@@ -30,35 +29,28 @@ static CGFloat const hostNavigationBarHeightPortrait    = 44;
     // Do any additional setup after loading the view.
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 }
 
-- (void)viewWillLayoutSubviews
-{
+- (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
 }
 
-- (void)viewDidLayoutSubviews
-{
+- (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
 }
 
-- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
-{
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
     
     [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
         UIDeviceOrientation orientation =  [UIDevice currentDevice].orientation;
         
-        if(UIDeviceOrientationIsLandscape(orientation))
-        {
+        if(UIDeviceOrientationIsLandscape(orientation)) {
             self.menuButtonLeadingConstraint.constant = menuButtonLandscapeLeadingConstant;
             self.menuButtonTopConstraint.constant = menuButtonPortraitLeadingConstant;
-        }
-        else
-        {
+        } else {
             CGFloat statusbarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
             self.menuButtonLeadingConstraint.constant = menuButtonPortraitLeadingConstant;
             self.menuButtonTopConstraint.constant = menuButtonPortraitLeadingConstant + statusbarHeight;
@@ -66,24 +58,17 @@ static CGFloat const hostNavigationBarHeightPortrait    = 44;
     } completion: nil];
 }
 
-- (void)closeMenuButtonTapped: (id)sender
-{
+- (void)closeMenuButtonTapped: (id)sender {
     [self dismissViewControllerAnimated:YES completion: nil];
 }
 
-
-- (void)setMenuButtonWithImage: (UIImage*) image
-{
+- (void)setMenuButtonWithImage: (UIImage*)image {
     const CGFloat statusbarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
-    const UIImage* buttonImage = [[UIImage alloc] initWithCGImage: image.CGImage scale: 1.0  orientation:UIImageOrientationRight];
     
     UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
-    if(UIDeviceOrientationIsLandscape(orientation))
-    {
+    if(UIDeviceOrientationIsLandscape(orientation)) {
         _menuButton = [[UIButton alloc]initWithFrame: CGRectMake(menuButtonPortraitLeadingConstant, menuButtonPortraitLeadingConstant+statusbarHeight, 30.0, 30.0)];
-    }
-    else
-    {
+    } else {
         _menuButton = [[UIButton alloc]initWithFrame: CGRectMake(menuButtonPortraitLeadingConstant, menuButtonPortraitLeadingConstant+statusbarHeight, 30.0, 30.0)];
     }
     
@@ -98,19 +83,16 @@ static CGFloat const hostNavigationBarHeightPortrait    = 44;
     
     [self.view addSubview: _menuButton];
    
-    if(UIDeviceOrientationIsLandscape(orientation))
-    {
+    if(UIDeviceOrientationIsLandscape(orientation)) {
         [self.view addConstraintsForMenuButton:_menuButton
                                         offset:UIOffsetMake(menuButtonLandscapeLeadingConstant, menuButtonPortraitLeadingConstant)
                                         result:^(NSLayoutConstraint *leading, NSLayoutConstraint *top) {
             _menuButtonLeadingConstraint = leading;
             _menuButtonTopConstraint = top;
         }];
-    }
-    else
-    {
+    } else {
         [self.view addConstraintsForMenuButton:_menuButton
-                                        offset: UIOffsetMake(menuButtonPortraitLeadingConstant, menuButtonPortraitLeadingConstant + statusbarHeight)
+                                        offset:UIOffsetMake(menuButtonPortraitLeadingConstant, menuButtonPortraitLeadingConstant + statusbarHeight)
                                         result:^(NSLayoutConstraint *leading, NSLayoutConstraint *top) {
             _menuButtonLeadingConstraint = leading;
             _menuButtonTopConstraint = top;
@@ -118,76 +100,62 @@ static CGFloat const hostNavigationBarHeightPortrait    = 44;
     }
 }
 
+
 #pragma mark - GuillotineAnimationProtocol
-- (CGFloat)navigationBarHeight
-{
+
+- (CGFloat)navigationBarHeight {
     UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
-    if(UIDeviceOrientationIsLandscape(orientation))
-    {
+    if(UIDeviceOrientationIsLandscape(orientation)) {
         return hostNavigationBarHeightLandscape;
-    }
-    else
-    {
+    } else {
         return hostNavigationBarHeightPortrait;
     }
 }
 
-- (CGPoint)anchorPoint
-{
+- (CGPoint)anchorPoint {
     UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
-    if(UIDeviceOrientationIsLandscape(orientation))
-    {
+    if(UIDeviceOrientationIsLandscape(orientation)) {
         return CGPointMake(16, 16);
-    }
-    else
-    {
+    } else {
         return self.menuButton.center;
     }
 }
 
-- (NSString *)hostTitle
-{
+- (NSString *)hostTitle {
     return self.hostTitleText;
 }
 
 
 #pragma mark - Action
-- (IBAction)optionButtonClicked:(UIButton*)sender
-{
-   NSLog(@"%@", NSStringFromSelector(_cmd));
+
+- (IBAction)optionButtonClicked:(UIButton*)sender {
     [self dismissViewControllerAnimated: YES completion: nil];
-    if(self.delegate && [self.delegate respondsToSelector:@selector(menuOptionTapped:)])
-    {
+    if([self.delegate respondsToSelector:@selector(menuOptionTapped:)]) {
         [self.delegate menuOptionTapped: sender.accessibilityLabel];
     }
 }
 
 
 #pragma mark - GuillotineAnimationDelegate
-- (void)willStartPresentation
-{
-   NSLog(@"%@", NSStringFromSelector(_cmd));
+
+- (void)willStartPresentation{
+   
 }
 
-- (void)willStartDismissal
-{
-   NSLog(@"%@", NSStringFromSelector(_cmd));
+- (void)willStartDismissal {
+   
 }
 
-- (void)menuDidFinishPresentation
-{
-   NSLog(@"%@", NSStringFromSelector(_cmd));
+- (void)menuDidFinishPresentation {
+   
 }
 
-- (void)menuDidFinishDismissal
-{
-   NSLog(@"%@", NSStringFromSelector(_cmd));
+- (void)menuDidFinishDismissal {
+   
 }
 
-- (void)menuDidCollideWithBoundary
-{
-   NSLog(@"%@", NSStringFromSelector(_cmd));
+- (void)menuDidCollideWithBoundary {
+   
 }
-
 
 @end

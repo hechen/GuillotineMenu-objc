@@ -14,14 +14,6 @@
 		56D897F31B904E0900CBFBD3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56D897F11B904E0900CBFBD3 /* LaunchScreen.xib */; };
 		56D897FF1B904E0900CBFBD3 /* GuillotineMenu_objcTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D897FE1B904E0900CBFBD3 /* GuillotineMenu_objcTests.m */; };
 		56D898091B904F6E00CBFBD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56D898081B904F6E00CBFBD3 /* Main.storyboard */; };
-		56D898121B90502300CBFBD3 /* content_1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56D8980A1B90502300CBFBD3 /* content_1@3x.png */; };
-		56D898131B90502300CBFBD3 /* content_2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56D8980B1B90502300CBFBD3 /* content_2@3x.png */; };
-		56D898141B90502300CBFBD3 /* ic_activity@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56D8980C1B90502300CBFBD3 /* ic_activity@3x.png */; };
-		56D898151B90502300CBFBD3 /* ic_feed@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56D8980D1B90502300CBFBD3 /* ic_feed@3x.png */; };
-		56D898161B90502300CBFBD3 /* ic_menu@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56D8980E1B90502300CBFBD3 /* ic_menu@3x.png */; };
-		56D898171B90502300CBFBD3 /* ic_menuRotated@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56D8980F1B90502300CBFBD3 /* ic_menuRotated@3x.png */; };
-		56D898181B90502300CBFBD3 /* ic_profile@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56D898101B90502300CBFBD3 /* ic_profile@3x.png */; };
-		56D898191B90502300CBFBD3 /* ic_settings@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56D898111B90502300CBFBD3 /* ic_settings@3x.png */; };
 		56D8981E1B9051F500CBFBD3 /* GuillotineMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D8981D1B9051F500CBFBD3 /* GuillotineMenuViewController.m */; };
 		56D898211B90597B00CBFBD3 /* UIView+ConstraintExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D898201B90597B00CBFBD3 /* UIView+ConstraintExtension.m */; };
 		56D898241B905F8C00CBFBD3 /* GuillotineMenuSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D898231B905F8C00CBFBD3 /* GuillotineMenuSegue.m */; };
@@ -52,14 +44,6 @@
 		56D897FD1B904E0900CBFBD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56D897FE1B904E0900CBFBD3 /* GuillotineMenu_objcTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GuillotineMenu_objcTests.m; sourceTree = "<group>"; };
 		56D898081B904F6E00CBFBD3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		56D8980A1B90502300CBFBD3 /* content_1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "content_1@3x.png"; path = "Assets/content_1@3x.png"; sourceTree = "<group>"; };
-		56D8980B1B90502300CBFBD3 /* content_2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "content_2@3x.png"; path = "Assets/content_2@3x.png"; sourceTree = "<group>"; };
-		56D8980C1B90502300CBFBD3 /* ic_activity@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ic_activity@3x.png"; path = "Assets/ic_activity@3x.png"; sourceTree = "<group>"; };
-		56D8980D1B90502300CBFBD3 /* ic_feed@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ic_feed@3x.png"; path = "Assets/ic_feed@3x.png"; sourceTree = "<group>"; };
-		56D8980E1B90502300CBFBD3 /* ic_menu@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ic_menu@3x.png"; path = "Assets/ic_menu@3x.png"; sourceTree = "<group>"; };
-		56D8980F1B90502300CBFBD3 /* ic_menuRotated@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ic_menuRotated@3x.png"; path = "Assets/ic_menuRotated@3x.png"; sourceTree = "<group>"; };
-		56D898101B90502300CBFBD3 /* ic_profile@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ic_profile@3x.png"; path = "Assets/ic_profile@3x.png"; sourceTree = "<group>"; };
-		56D898111B90502300CBFBD3 /* ic_settings@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ic_settings@3x.png"; path = "Assets/ic_settings@3x.png"; sourceTree = "<group>"; };
 		56D8981C1B9051F500CBFBD3 /* GuillotineMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GuillotineMenuViewController.h; path = GuillotineMenu/GuillotineMenuViewController.h; sourceTree = SOURCE_ROOT; };
 		56D8981D1B9051F500CBFBD3 /* GuillotineMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GuillotineMenuViewController.m; path = GuillotineMenu/GuillotineMenuViewController.m; sourceTree = SOURCE_ROOT; };
 		56D8981F1B90597B00CBFBD3 /* UIView+ConstraintExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+ConstraintExtension.h"; path = "GuillotineMenu/UIView+ConstraintExtension.h"; sourceTree = SOURCE_ROOT; };
@@ -114,7 +98,6 @@
 				56D897E71B904E0900CBFBD3 /* AppDelegate.m */,
 				56D897E91B904E0900CBFBD3 /* ViewController.h */,
 				56D897EA1B904E0900CBFBD3 /* ViewController.m */,
-				56D8981A1B90502A00CBFBD3 /* Assets */,
 				56D897EF1B904E0900CBFBD3 /* Images.xcassets */,
 				56D898081B904F6E00CBFBD3 /* Main.storyboard */,
 				56D897F11B904E0900CBFBD3 /* LaunchScreen.xib */,
@@ -147,21 +130,6 @@
 				56D897FD1B904E0900CBFBD3 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		56D8981A1B90502A00CBFBD3 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				56D8980A1B90502300CBFBD3 /* content_1@3x.png */,
-				56D8980B1B90502300CBFBD3 /* content_2@3x.png */,
-				56D8980C1B90502300CBFBD3 /* ic_activity@3x.png */,
-				56D8980D1B90502300CBFBD3 /* ic_feed@3x.png */,
-				56D8980E1B90502300CBFBD3 /* ic_menu@3x.png */,
-				56D8980F1B90502300CBFBD3 /* ic_menuRotated@3x.png */,
-				56D898101B90502300CBFBD3 /* ic_profile@3x.png */,
-				56D898111B90502300CBFBD3 /* ic_settings@3x.png */,
-			);
-			name = Assets;
 			sourceTree = "<group>";
 		};
 		56D8981B1B9051D300CBFBD3 /* GuillotineMenu */ = {
@@ -260,16 +228,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				56D898091B904F6E00CBFBD3 /* Main.storyboard in Resources */,
-				56D898131B90502300CBFBD3 /* content_2@3x.png in Resources */,
-				56D898121B90502300CBFBD3 /* content_1@3x.png in Resources */,
 				56D897F31B904E0900CBFBD3 /* LaunchScreen.xib in Resources */,
-				56D898191B90502300CBFBD3 /* ic_settings@3x.png in Resources */,
-				56D898161B90502300CBFBD3 /* ic_menu@3x.png in Resources */,
-				56D898181B90502300CBFBD3 /* ic_profile@3x.png in Resources */,
-				56D898141B90502300CBFBD3 /* ic_activity@3x.png in Resources */,
 				56D897F01B904E0900CBFBD3 /* Images.xcassets in Resources */,
-				56D898171B90502300CBFBD3 /* ic_menuRotated@3x.png in Resources */,
-				56D898151B90502300CBFBD3 /* ic_feed@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,6 +440,7 @@
 				56D898041B904E0900CBFBD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		56D898051B904E0900CBFBD3 /* Build configuration list for PBXNativeTarget "GuillotineMenu-objcTests" */ = {
 			isa = XCConfigurationList;
@@ -488,6 +449,7 @@
 				56D898071B904E0900CBFBD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
